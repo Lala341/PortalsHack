@@ -1,0 +1,17 @@
+{
+    "auth0" : {
+        "domain": "Your Auth Domain",
+        "clientID": "Your clientId",
+        "redirectUri": "Your callback URL"
+    },
+    "firebase" : {
+        "apiKey": "AIzaSyDt2yIE-nhR2KHBq-TbZVpaPopFIJ9-2aE",
+        "authDomain": "react-endless-acb8c.firebaseapp.com",
+        "databaseURL": "https://react-endless-acb8c.firebaseio.com",
+        "projectId": "react-endless-acb8c",
+        "storageBucket": "react-endless-acb8c.appspot.com",
+        "messagingSenderId": "887946715407",
+        "appId": "1:887946715407:web:1104e78a2c8b408ace1e7a"
+    },
+    "jwt_token" : "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkpvaG4iLCJwYXNzd29yZCI6IjEyMzQ1NiJ9.vPN0PhthyTuf9l3912NksmpzHXvWjZ7Nywhe22GK2zI"
+}
