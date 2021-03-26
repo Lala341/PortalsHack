@@ -47,9 +47,11 @@ const General = () => {
   return (
     <Fragment>
       <Breadcrumb parent="Widgets" title="General" />
+      
       {clients && cartProducts &&  employeeStatus ?
       <Container fluid={true}>
         <Row>
+       
           <Col sm="6" xl="3" lg="6">
             <Card className="o-hidden">
               <CardBody className="bg-primary b-r-4 card-body">
@@ -62,6 +64,7 @@ const General = () => {
               </CardBody>
             </Card>
           </Col>
+          
           <Col sm="6" xl="3" lg="6">
             <Card className="o-hidden">
               <div className="bg-secondary b-r-4 card-body">
@@ -98,6 +101,16 @@ const General = () => {
               </CardBody>
             </Card>
           </Col>
+          <Col xs="12">
+                        <div className="knowledgebase-bg" style={{ backgroundImage: `url(${require("../../../assets/images/knowledgebase/bg_1.jpg")})`,backgroundSize:"cover",backgroundPosition:"center",display:"block" }}>
+                            <img className="bg-img-cover bg-center" src={require("../../../assets/images/knowledgebase/bg_1.jpg")} alt="looginpage" style={{display:"none"}}/>
+                        </div>
+                            <div className="knowledgebase-search">
+                            <div>
+                               
+                            </div>
+                        </div>
+                    </Col>
           <Col xl="6" className="xl-100 box-col-12">
             <Card className="widget-joins widget-arrow">
               <Row>
@@ -194,32 +207,7 @@ const General = () => {
               </Row>
             </Card>
           </Col>
-          <Col xl="6" className="xl-100 box-col-12">
-            <Card>
-              <CardBody className="cal-date-widget">
-                <Row>
-                  <Col xl="6" xs="12" md="6" sm="6">
-                    <div className="cal-info text-center">
-                      <h2>{"24"}</h2>
-                      <div className="d-inline-block mt-2"><span className="b-r-dark pr-3">{"March"}</span><span className="pl-3">{"2019"}</span></div>
-                      <p className="mt-4 f-16 text-muted">{"There is no minimum donation, any sum is appreciated"}</p>
-                    </div>
-                  </Col>
-                  <Col xl="6" xs="12" md="6" sm="6">
-                    <div className="cal-datepicker">
-                      <div className="datepicker-here float-sm-right" data-language="en">
-                        <DatePicker
-                          selected={startDate}
-                          onChange={handleChange}
-                          inline
-                        />
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
+          
           <Col xl="3" sm="6" className="xl-50 box-col-6">
             <Card>
               <div className="mobile-clock-widget">
@@ -390,104 +378,8 @@ const General = () => {
               </div>
             </Card>
           </Col>
-          <Col xl="4" lg="12 box-col-12 xl-100">
-            <div>
-              <Card>
-                <CardHeader>
-                  <h5 className="text-uppercase">{RecentActivity}</h5>
-                </CardHeader>
-                <CardBody>
-                  <ul className="crm-activity">
-                    <li className="media"><span className="mr-3 font-primary">{"E"}</span>
-                      <div className="align-self-center media-body">
-                        <h6 className="mt-0">{"Established fact that a reader will be distracted "}</h6>
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="media"><span className="mr-3 font-secondary">{"A"}</span>
-                      <div className="align-self-center media-body">
-                        <h6 className="mt-0">{"Any desktop publishing packages and web page editors."}</h6>
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="media"><span className="mr-3 font-primary">{"T"}</span>
-                      <div className="align-self-center media-body">
-                        <h6 className="mt-0">{"There isn't anything embarrassing hidden."}</h6>
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="media"><span className="mr-3 font-secondary">C</span>
-                      <div className="align-self-center media-body">
-                        <h6 className="mt-0">{"Contrary to popular belief, Lorem Ipsum is not simply."} </h6>
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="media"><span className="mr-3 font-primary">{"H"}</span>
-                      <div className="align-self-center media-body">
-                        <h6 className="mt-0">{"H-Code - A premium portfolio template from ThemeZaa"} </h6>
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                    <li className="media">
-                      <div className="align-self-center media-body">
-                        <ul className="dates">
-                          <li className="digits">{"25 July 2017"}</li>
-                          <li className="digits">{"20 hours ago"}</li>
-                        </ul>
-                      </div>
-                    </li>
-                  </ul>
-                </CardBody>
-              </Card>
-            </div>
-          </Col>
-          <Col xl="4" md="6" className="box-col-6 xl-50">
-            <Card className="custom-card widget-profile">
-              <CardHeader><img className="img-fluid" src={require("../../../assets/images/user-card/3.jpg")} alt="" /></CardHeader>
-              <div className="card-profile"><img className="rounded-circle" src={require("../../../assets/images/avtar/3.jpg")} alt="" /></div>
-              <ul className="card-social">
-                <li><a href="#javascript"><i className="fa fa-facebook"></i></a></li>
-                <li><a href="#javascript"><i className="fa fa-google-plus"></i></a></li>
-                <li><a href="#javascript"><i className="fa fa-twitter"></i></a></li>
-                <li><a href="#javascript"><i className="fa fa-instagram"></i></a></li>
-                <li><a href="#javascript"><i className="fa fa-rss"></i></a></li>
-              </ul>
-              <div className="text-center profile-details">
-                <h4>{MarkJecno}</h4>
-                <h6>{Manager}</h6>
-              </div>
-              <CardFooter className="row">
-                <Col sm="4 col-4" >
-                  <h6>{Follower}</h6>
-                  <h3 className="counter">
-                    <CountUp end={9564} /></h3>
-                </Col>
-                <Col sm="4 col-4">
-                  <h6>{Following}</h6>
-                  <h3><span className="counter"><CountUp end={49} /></span>{"K"}</h3>
-                </Col>
-                <Col sm="4 col-4">
-                  <h6>{TotalPost}</h6>
-                  <h3><span className="counter"><CountUp end={96} /></span>{"M"}</h3>
-                </Col>
-              </CardFooter>
-            </Card>
-          </Col>
+         
+         
           <Col md="6" xl="4 box-col-6 xl-50">
             <Card className="testimonial text-center">
               <CardBody>
@@ -545,255 +437,10 @@ const General = () => {
               </CardBody>
             </Card>
           </Col>
-          <Col sm="6" xl="3" lg="6" className="xl-50 box-col-6">
-            <Card className="social-widget-card">
-              <CardBody>
-                <div className="redial-social-widget radial-bar-70" data-label="50%">
-                  <i className="fa fa-twitter font-primary"></i></div>
-                <h5 className="b-b-light">{Twitters}</h5>
-                <Row>
-                  <Col className="text-center b-r-light"><span>{Post}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={6589} />
-                    </h4>
-                  </Col>
-                  <Col className="text-center"><span>{Follower}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={75269} />
-                    </h4>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm="6" xl="3" lg="6" className="xl-50 box-col-6">
-            <Card className="social-widget-card">
-              <CardBody>
-                <div className="redial-social-widget radial-bar-70" data-label="50%">
-                  <i className="fa fa-linkedin font-primary"></i></div>
-                <h5 className="b-b-light">{Linkedins}</h5>
-                <Row>
-                  <Col className="text-center b-r-light"><span>{Post}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={1234} />
-                    </h4>
-                  </Col>
-                  <Col className="text-center"><span>{Linkedins}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={4369} />
-                    </h4>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm="6" xl="3" lg="6" className="xl-50 box-col-6">
-            <Card className="social-widget-card">
-              <CardBody>
-                <div className="redial-social-widget radial-bar-70" data-label="50%">
-                  <i className="fa fa-google-plus font-primary"></i></div>
-                <h5 className="b-b-light">{GooglePlus}</h5>
-                <Row>
-                  <Col className="text-center b-r-light"><span>{Post}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={369} /></h4>
-                  </Col>
-                  <Col className="text-center"><span>{Follower}</span>
-                    <h4 className="counter mb-0">
-                      <CountUp end={3458} />
-                    </h4>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="4" sm="12">
-            <Card className="browser-widget">
-              <CardBody className="media card-body">
-                <div className="media-img"><img src={require("../../../assets/images/dashboard/chrome.png")} alt="" /></div>
-                <div className="media-body align-self-center">
-                  <div>
-                    <p>{Daily} </p>
-                    <h4><span className="counter">
-                      <CountUp end={36} /></span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Month} </p>
-                    <h4><span className="counter">
-                      <CountUp end={96} /></span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Week} </p>
-                    <h4><span className="counter">
-                      <CountUp end={46} /></span>{"%"}</h4>
-                  </div>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="4" sm="12">
-            <Card className="browser-widget">
-              <CardBody className="media">
-                <div className="media-img"><img src={require("../../../assets/images/dashboard/firefox.png")} alt="" /></div>
-                <div className="media-body align-self-center">
-                  <div>
-                    <p>{Daily} </p>
-                    <h4><span className="counter">
-                      <CountUp end={36} /></span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Month} </p>
-                    <h4><span className="counter">
-                      <CountUp end={96} />
-                    </span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Week} </p>
-                    <h4><span className="counter">
-                      <CountUp end={46} /></span>{"%"}</h4>
-                  </div>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col md="4" sm="12">
-            <Card className="browser-widget">
-              <CardBody className="media">
-                <div className="media-img"><img src={require("../../../assets/images/dashboard/safari.png")} alt="" /></div>
-                <div className="media-body align-self-center">
-                  <div>
-                    <p>{Daily} </p>
-                    <h4><span className="counter"><CountUp end={36} /></span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Month} </p>
-                    <h4><span className="counter"><CountUp end={96} /></span>{"%"}</h4>
-                  </div>
-                  <div>
-                    <p>{Week} </p>
-                    <h4><span className="counter"><CountUp end={46} /></span>{"%"}</h4>
-                  </div>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xl="6" className="xl-100 box-col-12">
-            <Card>
-              <CardHeader>
-                <h5>{ProductsCart}</h5>
-              </CardHeader>
-              <CardBody>
-                <div className="user-status table-responsive">
-                  <Table borderless>
-                    <thead>
-                      <tr>
-                        <th scope="col">{Details}</th>
-                        <th scope="col">{Quantity}</th>
-                        <th scope="col">{Status}</th>
-                        <th scope="col">{Price}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {cartProducts.map(data => (
-                        <tr key={data.details}>
-                          <td>{data.details}</td>
-                          <td className="digits">{data.qty}</td>
-                          <td className={`font-${data.statusColor}`}>{data.status}</td>
-                          <td>
-                            <div className={`span badge badge-pill ${data.className}`}>{data.price}</div></td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col xl="6" className="xl-100 box-col-12">
-            <Card>
-              <CardHeader>
-                <h5>{Employee_Status}</h5>
-              </CardHeader>
-              <CardBody>
-                <div className="user-status table-responsive">
-                  <Table borderless>
-                    <thead>
-                      <tr>
-                        <th scope="col">{Name}</th>
-                        <th scope="col">{Designation}</th>
-                        <th scope="col">{SkillLevel}</th>
-                        <th scope="col">{Experience}</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {employeeStatus.map(data => (
-                        <tr key={data.title}>
-                          <td className="bd-t-none u-s-tb">
-                            <div className="align-middle image-sm-size">
-                              <img className="img-radius align-top m-r-15 rounded-circle" src={require(`../../../assets/images/${data.imagepath}`)} alt="" />
-                              <div className="d-inline-block">
-                                <h6>{data.title} <span className="text-muted digits">({data.online})</span></h6>
-                              </div>
-                            </div>
-                          </td>
-                          <td>{data.position}</td>
-                          <td>
-                            <div className="progress-showcase">
-                              <div className="progress" style={{ height: "8px" }}>
-                                <div className={`progress-bar bg-${data.classname}`} role="progressbar" style={{ 'width': data.skill }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </div>
-                          </td>
-                          <td className="digits">{data.exp}</td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </Table>
-                </div>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm="12" lg="6" xl="4" md="12" className="xl-50 box-col-6">
-            <Card className="height-equal">
-              <div className="calender-widget">
-                <div className="cal-img"></div>
-                <div className="cal-date">
-                  <h5>{"25"}<br />{"APRIL"}</h5>
-                </div>
-                <div className="cal-desc text-center card-body">
-                  <h6 className="f-w-600">{"I must explain to you how all this mistaken idea truth"}</h6>
-                  <p className="text-muted mt-3 mb-0">{"Denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth,Letraset sheets containing Lorem Ipsum passages."}</p>
-                </div>
-              </div>
-            </Card>
-          </Col>
-          <Col sm="12" lg="6" xl="8" md="12" className="xl-50 box-col-6">
-            <Card className="height-equal">
-              <CardHeader>
-                <h5>{ContactUs}</h5>
-              </CardHeader>
-              <CardBody className="contact-form">
-                <Form className="theme-form">
-                  <div className="form-icon"><i className="icofont icofont-envelope-open"></i></div>
-                  <FormGroup>
-                    <Label for="exampleInputName">{YourName}</Label>
-                    <Input className="form-control" id="exampleInputName" type="text" placeholder="John Dio" />
-                  </FormGroup>
-                  <FormGroup >
-                    <Label className="col-form-label" htmlFor="exampleInputEmail1">{Email}</Label>
-                    <Input className="form-control" id="exampleInputEmail1" type="email" placeholder="Demo@gmail.com" />
-                  </FormGroup>
-                  <FormGroup >
-                    <Label className="col-form-label" htmlFor="exampleInputEmail1">{Message}</Label>
-                    <textarea className="form-control textarea" rows="3" cols="50" placeholder="Your Message"></textarea>
-                  </FormGroup>
-                  <div className="text-sm-right">
-                    <Button className="btn btn-primary-gradien">{SEND_IT}</Button>
-                  </div>
-                </Form>
-              </CardBody>
-            </Card>
-          </Col>
+      
+      
+          
+          
         </Row>
       </Container>
       :""}
