@@ -9,7 +9,7 @@ function* fetchProductsAsyn() {
     yield put(getSingleItem());
 }
 
-export function* WatcherEcommerceApp() {
+export function* WatcherecommerceApp() {
     yield takeLatest(WATCH_PRODUCT_LIST,fetchProductsAsyn)
     yield takeLatest(WATCH_SINGLE_ITEM,fetchProductsAsyn)
 }

@@ -1,363 +1,243 @@
-import React, { Fragment,useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import Breadcrumb from '../../layout/breadcrumb'
+import { Container, Row, Col, Card, CardHeader, CardBody } from 'reactstrap'
+import DatePicker from "react-datepicker";
 import ApexCharts from 'react-apexcharts'
-import Slider from "react-slick";
-import {Container,Row,Col,Card,CardBody,CardHeader,Table} from 'reactstrap' 
-import CountUp from 'react-countup';
-import {Monthlysales,columnCharts,totalearning,Riskfactorchart} from './chartsData/apex-charts-data'
-import { withGoogleMap, GoogleMap, withScriptjs } from "react-google-maps";
-import {NewProduct,NewsUpdate,RiskFactor,BestSeller,Location,TodayTotalSale,TodayTotalVisits,OurSaleValue,New,Hot,TotalProfit,HikeShoes,CouponCode,TreePot,Watch,TShirt,TotalGoal,GoalArchive,Duration,DownloadDetails,Johnketer,HerryVenter,Done,Pending,LoainDeo,TodayStockValue,Bag,HorenHors,InProcess,FenterJessy,Success} from '../../constant'
+import ChartistChart from 'react-chartist';
+import Knob from "knob";
+import { Currentlysale, Marketvalue } from './chartsData/apex-charts-data'
+import { smallchart1data, smallchart1option, smallchart2data, smallchart2option, smallchart3data, smallchart3option, smallchart4data, smallchart4option } from './chartsData/chartist-charts-data'
+import { Send, Clock } from 'react-feather';
+import {Dashboard,Summary,NewsUpdate,Appointment,Notification,MarketValue,Chat,New,Tomorrow,Yesterday,Daily,Weekly,Monthly,Store,Online,ReferralEarning,CashBalance,SalesForcasting,Purchase,Sales,SalesReturn,PurchaseRet,PurchaseOrderValue,ProductOrderValue,Pending,Yearly,Hot,Today,VenterLoren,Done,JohnLoren,Year,Month,Day,RightNow} from '../../constant'
+
 
 const Ecommerce = (props) => {
-    // eslint-disable-next-line
-    const[location,setlocation] = useState({ address: false,
-      mapPosition: {
-        lat: 18.5204, lng: 73.8567
-        },
-        markerPosition: {
-        lat: 18.5204, lng: 73.8567
-        }
+
+  const [daytimes,setDayTimes] = useState()
+  const today = new Date()
+  const curHr = today.getHours()
+  const curMi = today.getMinutes()
+  const [meridiem,setMeridiem] = useState("AM");
+  // eslint-disable-next-line
+  const [date, setDate] = useState({ date: new Date() });
+  // eslint-disable-next-line
+  const [startDate, setStartDate] = useState(new Date());
+  const [series, setSeries]=useState([]);
+
+  
+  const loadData =()=>{
+    var url =  "https://aqueous-gorge-10288.herokuapp.com/getallproduction/?lat=2&lon=3";
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => res.json()).then((response) => {
+      var ress=JSON.parse(response);
+ var se=[{
+  name: 'Solar_capacity',
+  data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0]
+}, {
+  name: 'Solar_generation_actual',
+  data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0]
+}];
+
+var data1=[];
+var data2=[];
+for(var i=0;i<ress.length;i++){
+  data1.push(ress[i]["DE_solar_capacity"]);
+  data2.push(ress[i]["DE_solar_generation_actual"]);
+}
+
+se[0]["data"]=data1;
+se[1]["data"]=data2;
+console.log(se);
+console.log(data1);
+
+      setSeries(se);
+
+    });
+  }
+
+  useEffect(() => {
+
+    loadData();
+
+
+    if (curHr < 12) {
+      setDayTimes('Good Morning')
+    }else if (curHr < 18) {
+      setDayTimes('Good Afternoon')
+    }else {
+      setDayTimes('Good Evening')
+    }
+
+    if(curHr >= 12){
+     setMeridiem('PM')
+    }else{
+      setMeridiem('AM')
+    }
+    
+    var ordervalue1 = Knob({
+      value: 60,
+      angleOffset: 0,
+      thickness: 0.3,
+      width: 65,
+      fgColor: "#7366ff",
+      readOnly: false,
+      dynamicDraw: true,
+      tickColorizeValues: true,
+      bgColor: '#eef5fb',
+      lineCap: 'round',
+      displayPrevious: false
     })
+    document.getElementById('ordervalue1').appendChild(ordervalue1);
 
-    const BasicMap = withScriptjs(
-      withGoogleMap(
-      props => (
-        <GoogleMap google={props.google}
-        defaultZoom={15}
-        defaultCenter={{ lat: location.mapPosition.lat, lng: location.mapPosition.lng }}
-        >
-      </GoogleMap>
-      )
-      )
-    );
+    var ordervalue2 = Knob({
+      value: 60,
+      angleOffset: 0,
+      thickness: 0.3,
+      fgColor: "#7366ff",
+      readOnly: false,
+      width: 65,
+      dynamicDraw: true,
+      lineCap: 'round',
+      displayPrevious: false
+    })
+    document.getElementById('ordervalue2').appendChild(ordervalue2);
 
-    const settings = {
-        className: "center",
-        centerMode: true,
-        dots: false,
-        arrows: false,
-        infinite: true,
-        speed: 500,
-        centerPadding: "5px",
-        slidesToShow: 1,
-        slidesToScroll: 1
-    };
+    // eslint-disable-next-line
+  }, [])
 
-    return (
-        <Fragment>
-            <Breadcrumb parent="Dashboard" title="Ecommerce" />
-            <Container fluid={true}>
-            <Row className="size-column">
-              <Col xl="7 xl-100" className="box-col-12 ">
-                <Row className="dash-chart">
-                  <Col xl="6"  className="box-col-6" md="6">
-                    <Card className="o-hidden">
-                      <CardHeader className="card-no-border">
-                        <div className="card-header-right">
-                          <ul className="list-unstyled card-option">
-                            <li><i className="fa fa-spin fa-cog"></i></li>
-                            <li><i className="view-html fa fa-code"></i></li>
-                            <li><i className="icofont icofont-maximize full-card"></i></li>
-                            <li><i className="icofont icofont-minus minimize-card"></i></li>
-                            <li><i className="icofont icofont-refresh reload-card"></i></li>
-                            <li><i className="icofont icofont-error close-card"></i></li>
-                          </ul>
-                        </div>
-                        <div className="media">
-                          <div className="media-body">
-                            <p><span className="f-w-500 font-roboto">{TodayTotalSale}</span><span className="f-w-700 font-primary ml-2">{"89.21%"}</span></p>
-                            <h4 className="f-w-500 mb-0 f-26">{"$"}<span className="counter"><CountUp  end={300056} /></span></h4>
+  return (
+    <Fragment>
+      <Breadcrumb parent="Dashboard" title="Energy" />
+      <Container fluid={true}>
+        <Row className="second-chart-list third-news-update">
+          
+          <Col xl="8 xl-100" className="dashboard-sec box-col-12">
+            <Card className="earning-card">
+              <CardBody className="p-0">
+                <Row className="m-0">
+                  <Col xl="3" className="earning-content p-0">
+                    <Row className="m-0 chart-left">
+                      <Col xl="12" className="p-0 left_side_earning">
+                        <h5>{Dashboard}</h5>
+                        <p className="font-roboto">{"Overview"}</p>
+                      </Col>
+                      <Col xl="12" className="p-0 left_side_earning">
+                        <h5>{"8741.0"} </h5>
+                        <p className="font-roboto">{"ecommerce (MW)"}</p>
+                      </Col>
+                      <Col xl="12" className="p-0 left_side_earning">
+                        <h5>{"0.1585"}</h5>
+                        <p className="font-roboto">{"SWTDN (total top-of-the-atmosphere horizontal radiation [W/m²])"}</p>
+                      </Col>
+                      <Col xl="12" className="p-0 left_side_earning">
+                        <h5>{"74.558"}</h5>
+                        <p className="font-roboto">{"T (Temperature [K] @ 2 meters above displacement height (see h1))"}</p>
+                      </Col>
+                      <Col xl="12" className="p-0 left-btn"><a className="btn btn-gradient" href="#javascript">{Summary}</a></Col>
+                    </Row>
+                  </Col>
+                  <Col xl="9" className="p-0">
+                    <div className="chart-right">
+                      <Row className="m-0 p-tb">
+                        <Col xl="8" md="8" sm="8" className="col-12 p-0">
+                          <div className="inner-top-left">
+                            <ul className="d-flex list-unstyled">
+                              <li className="active">{Daily}</li>
+                              <li>{Monthly}</li>
+                            </ul>
                           </div>
-                        </div>
-                      </CardHeader>
-                      <CardBody className="p-0">
-                        <div className="media">
-                          <div className="media-body">
-                            <div className="profit-card">
-                              <ApexCharts id="spaline-chart" options={Monthlysales.options} series={Monthlysales.series} type='area' height={150} />
+                        </Col>
+                        <Col xl="4" md="4" sm="4" className="col-12 p-0 justify-content-end">
+                          <div className="inner-top-right">
+                            <ul className="d-flex list-unstyled justify-content-end">
+                              <li>Solar capacity (MW)</li>
+                              <li>Solar generation actual (MW)</li>
+                            </ul>
+                          </div>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col xl="12">
+                          <CardBody className="p-0">
+                            <div className="current-sale-container">
+                              <ApexCharts id="chart-currently" options={Currentlysale.options} series={series} type='area' height={240} />
                             </div>
-                          </div>
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col xl="6" className="box-col-6" md="6">
-                    <Card className="o-hidden">
-                      <CardHeader className="card-no-border">
-                        <div className="card-header-right">
-                          <ul className="list-unstyled card-option">
-                            <li><i className="fa fa-spin fa-cog"></i></li>
-                            <li><i className="view-html fa fa-code"></i></li>
-                            <li><i className="icofont icofont-maximize full-card"></i></li>
-                            <li><i className="icofont icofont-minus minimize-card"></i></li>
-                            <li><i className="icofont icofont-refresh reload-card"></i></li>
-                            <li><i className="icofont icofont-error close-card"></i></li>
-                          </ul>
-                        </div>
-                        <div className="media">
+                          </CardBody>
+                        </Col>
+                      </Row>
+                    </div>
+                    <Row className="border-top m-0">
+                      <Col xl="4" md="6" sm="6" className="pl-0">
+                        <div className="media p-0">
+                          <div className="media-left"><i className="icofont icofont-crown"></i></div>
                           <div className="media-body">
-                            <p><span className="f-w-500 font-roboto">{TodayTotalVisits}</span><span className="f-w-700 font-primary ml-2">{"35.00%"}</span></p>
-                            <h4 className="f-w-500 mb-0 f-26 counter"><CountUp end={9050}/></h4>
+                            <h6>Electrical capacity average</h6>
+                            <p>0.0099</p>
                           </div>
                         </div>
-                      </CardHeader>
-                      <CardBody className="pt-0">
-                        <div className="monthly-visit">
-                          <ApexCharts id="column-chart" options={columnCharts.options} series={columnCharts.series} type='bar' height={105} />
-                        </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col xl="6" lg="12" md="6" className="box-col-6">
-                    <Card className="o-hidden">
-                      <CardBody>
-                        <div className="ecommerce-widgets media">
+                      </Col>
+                      <Col xl="4" md="6" sm="6">
+                        <div className="media p-0">
+                          <div className="media-left bg-secondary"><i className="icofont icofont-heart-alt"></i></div>
                           <div className="media-body">
-                            <p className="f-w-500 font-roboto">{OurSaleValue}<span className="badge pill-badge-primary ml-3">{New}</span></p>
-                            <h4 className="f-w-500 mb-0 f-26">{"$"}<span className="counter"><CountUp  end={745425} /></span></h4>
+                            <h6>Number plants</h6>
+                            <p>1725093</p>
                           </div>
-                          <div className="ecommerce-box light-bg-primary"><i className="fa fa-heart" aria-hidden="true"></i></div>
                         </div>
-                      </CardBody>
-                    </Card>
-                  </Col>
-                  <Col xl="6" lg="12" md="6" className="box-col-6">
-                    <Card className="o-hidden">
-                      <CardBody>
-                        <div className="media">
+                      </Col>
+                      <Col xl="4" md="12" className="pr-0">
+                        <div className="media p-0">
+                          <div className="media-left"><i className="icofont icofont-cur-dollar"></i></div>
                           <div className="media-body">
-                            <p className="f-w-500 font-roboto">{TodayStockValue}<span className="badge pill-badge-primary ml-3">{Hot}</span></p>
-                            <div className="progress-box">
-                              <h4 className="f-w-500 mb-0 f-26">{"$"}<span className="counter"><CountUp  end={900004} /></span></h4>
-                              <div className="progress sm-progress-bar progress-animate app-right d-flex justify-content-end">
-                                <div className="progress-gradient-primary" role="progressbar" style={{width: "35%"}} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span className="font-primary">{"88%"}</span><span className="animate-circle"></span></div>
-                              </div>
-                            </div>
+                            <h6>Technology</h6>
+                            <p>Photovoltaics</p>
                           </div>
                         </div>
-                      </CardBody>
-                    </Card>
+                      </Col>
+                    </Row>
                   </Col>
                 </Row>
-              </Col>
-              <Col xl="5 xl-50" className="box-col-12">
-                <Card className="o-hidden dash-chart">
-                  <CardHeader className="card-no-border">
-                    <div className="card-header-right">
-                      <ul className="list-unstyled card-option">
-                        <li><i className="fa fa-spin fa-cog"></i></li>
-                        <li><i className="view-html fa fa-code"></i></li>
-                        <li><i className="icofont icofont-maximize full-card"></i></li>
-                        <li><i className="icofont icofont-minus minimize-card"></i></li>
-                        <li><i className="icofont icofont-refresh reload-card"></i></li>
-                        <li><i className="icofont icofont-error close-card"></i></li>
-                      </ul>
-                    </div>
-                    <div className="media">
-                      <div className="media-body">
-                        <p><span className="f-w-500 font-roboto">{TotalProfit}</span><span className="font-primary f-w-700 ml-2">{"99.00%"}</span></p>
-                        <h4 className="f-w-500 mb-0 f-26">{"$"}<span className="counter"><CountUp  end={300056} /></span></h4>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="pt-0">
-                    <div className="negative-container">
-                      <ApexCharts id="negative-chart" options={totalearning.options} series={totalearning.series} type='bar' height={320} />
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col xl="4 xl-50" className="box-col-12">
-                <Card>
-                  <CardHeader className="card-no-border">
-                    <h5>{NewProduct}</h5>
-                    <div className="card-header-right">
-                      <ul className="list-unstyled card-option">
-                        <li><i className="fa fa-spin fa-cog"></i></li>
-                        <li><i className="view-html fa fa-code"></i></li>
-                        <li><i className="icofont icofont-maximize full-card"></i></li>
-                        <li><i className="icofont icofont-minus minimize-card"></i></li>
-                        <li><i className="icofont icofont-refresh reload-card"></i></li>
-                        <li><i className="icofont icofont-error close-card"></i></li>
-                      </ul>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="pt-0">
-                    <div className="our-product">
-                      <div className="table-responsive">
-                        <Table borderless>
-                          <tbody className="f-w-500">
-                            <tr>
-                              <td>
-                                <div className="media"><img className="img-fluid m-r-15 rounded-circle" src={require("../../assets/images/dashboard-2/product-1.png")} alt=""/>
-                                  <div className="media-body"><span>{HikeShoes}</span>
-                                    <p className="font-roboto">{"100 item"}</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p>{CouponCode}</p><span>{"PIX001"}</span>
-                              </td>
-                              <td>
-                                <p>{"-51%"}</p><span>{"$99.00"}</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="media"><img className="img-fluid m-r-15 rounded-circle" src={require("../../assets/images/dashboard-2/product-3.png")} alt=""/>
-                                  <div className="media-body"><span>{TreePot}</span>
-                                    <p className="font-roboto">{"105 item"}</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p>{CouponCode}</p><span>{"PIX002"}</span>
-                              </td>
-                              <td>
-                                <p>{"-78%"}</p><span>{"$66.00"}</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="media"><img className="img-fluid m-r-15 rounded-circle" src={require("../../assets/images/dashboard-2/product-4.png")} alt=""/>
-                                  <div className="media-body"><span>{Bag}</span>
-                                    <p className="font-roboto">{"604 item"}</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p>{CouponCode}</p><span>{"PIX003"}</span>
-                              </td>
-                              <td>
-                                <p>{"-04%"}</p><span>{"$116.00"}</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="media"><img className="img-fluid m-r-15 rounded-circle" src={require("../../assets/images/dashboard-2/product-5.png")} alt=""/>
-                                  <div className="media-body"><span>{Watch}</span>
-                                    <p className="font-roboto">{"541 item"}</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p>{CouponCode}</p><span>{"PIX004"}</span>
-                              </td>
-                              <td>
-                                <p>{"-60%"}</p><span>{"$99.00"}</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div className="media"><img className="img-fluid m-r-15 rounded-circle" src={require("../../assets/images/dashboard-2/product-6.png")} alt=""/>
-                                  <div className="media-body"><span>{TShirt}</span>
-                                    <p className="font-roboto">{"999 item"}</p>
-                                  </div>
-                                </div>
-                              </td>
-                              <td>
-                                <p>{CouponCode}</p><span>{"PIX005"}</span>
-                              </td>
-                              <td>
-                                <p>{"-50%"}</p><span>{"$58.00"}</span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </Table>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col xl="4 xl-50" className="box-col-12">
-                <Card>
-                  <CardHeader className="card-no-border">
-                    <h5>{Location}</h5>
-                    <div className="card-header-right">
-                      <ul className="list-unstyled card-option">
-                        <li><i className="fa fa-spin fa-cog"></i></li>
-                        <li><i className="view-html fa fa-code"></i></li>
-                        <li><i className="icofont icofont-maximize full-card"></i></li>
-                        <li><i className="icofont icofont-minus minimize-card"></i></li>
-                        <li><i className="icofont icofont-refresh reload-card"></i></li>
-                        <li><i className="icofont icofont-error close-card"></i></li>
-                      </ul>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="pt-0">
-                    <div className="dash-map">
-                    <div className="map-js-height" id="map">
-                      <div id="gmap-simple" className="map-block">
-                      <BasicMap
-                          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdXpLSJ3Ibdu-Phs9QOvpqb9d1DtPf7wQ&libraries=places"
-                          loadingElement={
-                          <div style={{ height: `100%` }} />
-                          }
-                          containerElement={
-                          <div style={{ height: '300px' }} />
-                          }
-                          mapElement={
-                          <div style={{ height: `100%` }} />
-                          }
-                          />
-                      </div>
-                    </div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
-              <Col xl="4 xl-50" className="box-col-12">
-                <Card>
-                  <CardHeader className="card-no-border">
-                    <h5>{NewsUpdate}</h5>
-                    <div className="card-header-right">
-                      <ul className="list-unstyled card-option">
-                        <li><i className="fa fa-spin fa-cog"></i></li>
-                        <li><i className="view-html fa fa-code"></i></li>
-                        <li><i className="icofont icofont-maximize full-card"></i></li>
-                        <li><i className="icofont icofont-minus minimize-card"></i></li>
-                        <li><i className="icofont icofont-refresh reload-card"></i></li>
-                        <li><i className="icofont icofont-error close-card"></i></li>
-                      </ul>
-                    </div>
-                  </CardHeader>
-                  <CardBody className="new-update pt-0">
-                    <div className="activity-timeline">
-                      <div className="media">
-                        <div className="activity-line"></div>
-                        <div className="activity-dot-secondary"></div>
-                        <div className="media-body"><span>{"Update Product"}</span>
-                          <p className="font-roboto">{"Quisque a consequat ante Sit amet magna at volutapt."}</p>
-                        </div>
-                      </div>
-                      <div className="media">
-                        <div className="activity-dot-primary"></div>
-                        <div className="media-body"><span>{"James liked Nike Shoes"}</span>
-                          <p className="font-roboto">{"Aenean sit amet magna vel magna fringilla ferme."}</p>
-                        </div>
-                      </div>
-                      <div className="media">
-                        <div className="activity-dot-secondary"></div>
-                        <div className="media-body"><span>{"john just buy your product"}<i className="fa fa-circle circle-dot-secondary pull-right"></i></span>
-                          <p className="font-roboto">{"Vestibulum nec mi suscipit, dapibus purus....."}</p>
-                        </div>
-                      </div>
-                      <div className="media">
-                        <div className="activity-dot-primary"></div>
-                        <div className="media-body"><span>{"Jihan Doe just save your product"}<i className="fa fa-circle circle-dot-primary pull-right"></i></span>
-                          <p className="font-roboto">{"Curabitur egestas consequat lorem."}</p>
-                        </div>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Col>
-            
-                
-            </Row>
-          </Container>
-        </Fragment>
-    );
+              </CardBody>
+            </Card>
+          </Col>
+         
+          <Col xl="3 xl-50" className="chart_data_right box-col-12">
+            <Card>
+              <CardBody>
+                <div className="media align-items-center">
+                  <div className="media-body right-chart-content">
+                    <h4>{0.0099}<span className="new-box">{Hot}</span></h4><span>Electrical capacity average</span>
+                  </div>
+                  <div className="knob-block text-center">
+                    <div className="knob1" id="ordervalue1"></div>
+                  </div>
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+          <Col xl="3 xl-50" className="chart_data_right second d-none">
+            <Card>
+              <CardBody>
+                <div className="media align-items-center">
+                  <div className="media-body right-chart-content">
+                    <h4>{1725093}<span className="new-box">{New}</span></h4><span>Number plants</span>
+                  </div>
+                  <div className="knob-block text-center">
+                    <div className="knob1" id="ordervalue2"></div>
+                  </div>
+                </div>
+              </CardBody>
+            </Card>
+          </Col>
+          
+        </Row>
+      </Container>
+    </Fragment>
+  );
 }
 
 export default Ecommerce;

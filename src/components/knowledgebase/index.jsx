@@ -45,7 +45,7 @@ const KnowledgebaseComponent = () => {
                         </div>
                             <div className="knowledgebase-search">
                             <div>
-                                <h3>{"How Can I help you?"}</h3>
+                                <h3>{"Portals"}</h3>
                             </div>
                         </div>
                     </Col>
@@ -59,15 +59,15 @@ const KnowledgebaseComponent = () => {
                             <h5 className="mb-0">{"Features"}</h5>
                         </div>
                         <Row>
-                            <Col xl="4" md="6">
+                            <Col xl="6" md="6">
                                 <Row>
                                     <Col sm="12">
                                         <Card>
                                             <CardBody>
                                                 <div className="media"><Codepen className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Using Video"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
+                                                        <h6 className="f-w-600">{"Machine learning"}</h6>
+                                                        <p>{"Machine learning."}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -78,8 +78,8 @@ const KnowledgebaseComponent = () => {
                                             <CardBody>
                                                 <div className="media"><Codepen className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Vel illum qu"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
+                                                        <h6 className="f-w-600">{"AR"}</h6>
+                                                        <p>{"Augmented reality."}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -90,8 +90,8 @@ const KnowledgebaseComponent = () => {
                                             <CardBody>
                                                 <div className="media"><Codepen className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Cum sociis natoqu"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. "}</p>
+                                                        <h6 className="f-w-600">{"Predictions"}</h6>
+                                                        <p>{"Predictions"}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -99,15 +99,15 @@ const KnowledgebaseComponent = () => {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col xl="4" md="6">
+                            <Col xl="6" md="6">
                                 <Row>
                                     <Col sm="12">
                                         <Card>
                                             <CardBody>
                                                 <div className="media"><FileText className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Donec pede justo"}</h6>
-                                                        <p>{" Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. "}</p>
+                                                        <h6 className="f-w-600">{"Simulations"}</h6>
+                                                        <p>{"Simulations."}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -118,8 +118,8 @@ const KnowledgebaseComponent = () => {
                                             <CardBody>
                                                 <div className="media"><FileText className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Nam quam nunc"}</h6>
-                                                        <p>{" Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
+                                                        <h6 className="f-w-600">{"Transfer type of ecommerce"}</h6>
+                                                        <p>{"Transfer."}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -131,8 +131,8 @@ const KnowledgebaseComponent = () => {
                                                 <div className="media">
                                                     <FileText className="m-r-30" />
                                                     <Media body>
-                                                        <h6 className="f-w-600">{"Using Video"} </h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
+                                                        <h6 className="f-w-600">{"Data"} </h6>
+                                                        <p>{"Data."}</p>
                                                     </Media>
                                                 </div>
                                             </CardBody>
@@ -140,46 +140,8 @@ const KnowledgebaseComponent = () => {
                                     </Col>
                                 </Row>
                             </Col>
-                            <Col xl="4">
-                                <Row>
-                                    <Col xl="12" md="6">
-                                        <Card>
-                                            <CardBody>
-                                                <div className="media"><Youtube className="m-r-30" />
-                                                    <Media body>
-                                                        <h6 className="f-w-600">{"Vel illum qu"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
-                                                    </Media>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                    </Col>
-                                    <Col xl="12" md="6">
-                                        <Card>
-                                            <CardBody>
-                                                <div className="media"><Youtube className="m-r-30" />
-                                                    <Media body>
-                                                        <h6 className="f-w-600">{"Cum sociis natoqu"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
-                                                    </Media>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                    </Col>
-                                    <Col xl="12">
-                                        <Card>
-                                            <CardBody>
-                                                <div className="media"><Youtube className="m-r-30" />
-                                                    <Media body>
-                                                        <h6 className="f-w-600">{"Donec pede justo"}</h6>
-                                                        <p>{"Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus."}</p>
-                                                    </Media>
-                                                </div>
-                                            </CardBody>
-                                        </Card>
-                                    </Col>
-                                </Row>
-                            </Col>
+                            
+                             
                         </Row>
                     </Col>
                 </Row>

@@ -66,7 +66,7 @@ $simple-line-icon-prefix: "icon-" !default;
   &mustache,
   &mouse,
   &magnet,
-  &energy,
+  &ecommerce,
   &disc,
   &cursor,
   &cursor-move,
@@ -410,7 +410,7 @@ $simple-line-icon-prefix: "icon-" !default;
   content: "\e016";
 }
 
-.#{$simple-line-icon-prefix}energy:before {
+.#{$simple-line-icon-prefix}ecommerce:before {
   content: "\e020";
 }
 

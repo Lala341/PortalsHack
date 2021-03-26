@@ -189,7 +189,7 @@ const PrintComponent = () => {
   const componentRef = useRef();
   return (
     <Fragment>
-      <Breadcrumb parent="Ecommerce" title="Invoice" />
+      <Breadcrumb parent="ecommerce" title="Invoice" />
       <Invoice cart={cart} symbol={symbol} ref={componentRef} />
       <Col sm="12" className="text-center my-3">
         <ReactToPrint

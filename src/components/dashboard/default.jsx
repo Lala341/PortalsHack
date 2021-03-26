@@ -24,11 +24,9 @@ const Default = (props) => {
   const [startDate, setStartDate] = useState(new Date());
   const [series, setSeries]=useState([]);
 
-  const handleChange = date => {
-    setDate(date)
-  };
+  
   const loadData =()=>{
-    var url =  "http://127.0.0.1:5000/getall/?lat=2&lon=3";
+    var url =  "https://aqueous-gorge-10288.herokuapp.com/getallproduction/?lat=2&lon=3";
     fetch(url, {
       method: 'GET',
       headers: {
@@ -37,23 +35,18 @@ const Default = (props) => {
     }).then((res) => res.json()).then((response) => {
       var ress=JSON.parse(response);
  var se=[{
-  name: 'series1',
+  name: 'Wind_capacity',
   data: [6, 20, 15, 40, 18, 20, 18, 23, 18, 35, 30, 55, 0]
 }, {
-  name: 'series2',
+  name: 'Wind_generation_actual',
   data: [2, 22, 35, 32, 40, 25, 50, 38, 42, 28, 20, 45, 0]
 }];
-console.log(ress);
-console.log(ress.length);
-console.log(ress[0]["v1"]);
-console.log(ress[0]["SWGDN"]);
-console.log(ress[0]);
 
 var data1=[];
 var data2=[];
 for(var i=0;i<ress.length;i++){
-  data1.push(ress[i]["v1"]);
-  data2.push(ress[i]["SWGDN"]);
+  data1.push(ress[i]["DE_wind_capacity"]);
+  data2.push(ress[i]["DE_wind_generation_actual"]);
 }
 
 se[0]["data"]=data1;
@@ -133,16 +126,16 @@ console.log(data1);
                         <p className="font-roboto">{"Overview of last year"}</p>
                       </Col>
                       <Col xl="12" className="p-0 left_side_earning">
-                        <h5>{"$4055.56"} </h5>
-                        <p className="font-roboto">{"This Month Earning"}</p>
+                        <h5>{"8741.0"} </h5>
+                        <p className="font-roboto">{"ecommerce (MW)"}</p>
                       </Col>
                       <Col xl="12" className="p-0 left_side_earning">
-                        <h5>{"$1004.11"}</h5>
-                        <p className="font-roboto">{"This Month Profit"}</p>
+                        <h5>{"8.534"}</h5>
+                        <p className="font-roboto">{"V1 (velocity [m/s] @ height h1 (2 meters above displacement height)"}</p>
                       </Col>
                       <Col xl="12" className="p-0 left_side_earning">
-                        <h5>{"90%"}</h5>
-                        <p className="font-roboto">{"This Month Sale"}</p>
+                        <h5>{"2.546"}</h5>
+                        <p className="font-roboto">{"V2 (velocity [m/s] @ height h2 (10 meters above displacement height)"}</p>
                       </Col>
                       <Col xl="12" className="p-0 left-btn"><a className="btn btn-gradient" href="#javascript">{Summary}</a></Col>
                     </Row>
@@ -161,8 +154,8 @@ console.log(data1);
                         <Col xl="4" md="4" sm="4" className="col-12 p-0 justify-content-end">
                           <div className="inner-top-right">
                             <ul className="d-flex list-unstyled justify-content-end">
-                              <li>{Online}</li>
-                              <li>{Store}</li>
+                              <li>Wind capacity (MW)</li>
+                              <li>Wind generation actual (MW)</li>
                             </ul>
                           </div>
                         </Col>
@@ -182,8 +175,8 @@ console.log(data1);
                         <div className="media p-0">
                           <div className="media-left"><i className="icofont icofont-crown"></i></div>
                           <div className="media-body">
-                            <h6>{ReferralEarning}</h6>
-                            <p>{"$5,000.20"}</p>
+                            <h6>Electrical capacity average</h6>
+                            <p>2.0</p>
                           </div>
                         </div>
                       </Col>
@@ -191,8 +184,8 @@ console.log(data1);
                         <div className="media p-0">
                           <div className="media-left bg-secondary"><i className="icofont icofont-heart-alt"></i></div>
                           <div className="media-body">
-                            <h6>{CashBalance}</h6>
-                            <p>{"$2,657.21"}</p>
+                            <h6>Number plants</h6>
+                            <p>22281</p>
                           </div>
                         </div>
                       </Col>
@@ -200,8 +193,8 @@ console.log(data1);
                         <div className="media p-0">
                           <div className="media-left"><i className="icofont icofont-cur-dollar"></i></div>
                           <div className="media-body">
-                            <h6>{SalesForcasting}</h6>
-                            <p>{"$9,478.50"}</p>
+                            <h6>Technology</h6>
+                            <p>Onshore</p>
                           </div>
                         </div>
                       </Col>
@@ -211,132 +204,13 @@ console.log(data1);
               </CardBody>
             </Card>
           </Col>
-          <Col xl="9 xl-100" className="chart_data_left box-col-12">
-            <Card>
-              <CardBody className="p-0">
-                <Row className="m-0 chart-main">
-                  <Col xl="3" md="6" sm="6" className="p-0 box-col-6">
-                    <div className="media align-items-center">
-                      <div className="hospital-small-chart">
-                        <div className="small-bar">
-                          <ChartistChart
-                            className="small-chart flot-chart-container"
-                            data={smallchart1data}
-                            options={smallchart1option}
-                            type={'Bar'}
-                            listener={{
-                              'draw': function (data) {
-                                if (data.type === 'bar') {
-                                  data.element.attr({
-                                    style: 'stroke-width: 3px'
-                                  });
-                                }
-                              }
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="media-body">
-                        <div className="right-chart-content">
-                          <h4>{"1001"}</h4><span>{Purchase} </span>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col xl="3" md="6" sm="6" className="p-0 box-col-6">
-                    <div className="media align-items-center">
-                      <div className="hospital-small-chart">
-                        <div className="small-bar">
-                          <ChartistChart
-                            className="small-chart1 flot-chart-container"
-                            data={smallchart2data}
-                            options={smallchart2option}
-                            type={'Bar'}
-                            listener={{
-                              'draw': function (data) {
-                                if (data.type === 'bar') {
-                                  data.element.attr({
-                                    style: 'stroke-width: 3px'
-                                  });
-                                }
-                              }
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="media-body">
-                        <div className="right-chart-content">
-                          <h4>{"1005"}</h4><span>{Sales}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col xl="3" md="6" sm="6" className="p-0 box-col-6">
-                    <div className="media align-items-center">
-                      <div className="hospital-small-chart">
-                        <div className="small-bar">
-                          <ChartistChart
-                            className="small-chart2 flot-chart-container"
-                            data={smallchart3data}
-                            options={smallchart3option}
-                            type={'Bar'}
-                            listener={{
-                              'draw': function (data) {
-                                if (data.type === 'bar') {
-                                  data.element.attr({
-                                    style: 'stroke-width: 3px'
-                                  });
-                                }
-                              }
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="media-body">
-                        <div className="right-chart-content">
-                          <h4>{"100"}</h4><span>{SalesReturn}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                  <Col xl="3" md="6" sm="6" className="p-0 box-col-6">
-                    <div className="media border-none align-items-center">
-                      <div className="hospital-small-chart">
-                        <div className="small-bar">
-                          <ChartistChart
-                            className="small-chart3 flot-chart-container"
-                            data={smallchart4data}
-                            options={smallchart4option}
-                            type={'Bar'}
-                            listener={{
-                              'draw': function (data) {
-                                if (data.type === 'bar') {
-                                  data.element.attr({
-                                    style: 'stroke-width: 3px'
-                                  });
-                                }
-                              }
-                            }}
-                          />
-                        </div>
-                      </div>
-                      <div className="media-body">
-                        <div className="right-chart-content">
-                          <h4>{"101"}</h4><span>{PurchaseRet}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </Col>
-                </Row>
-              </CardBody>
-            </Card>
-          </Col>
+         
           <Col xl="3 xl-50" className="chart_data_right box-col-12">
             <Card>
               <CardBody>
                 <div className="media align-items-center">
                   <div className="media-body right-chart-content">
-                    <h4>{"$95,900"}<span className="new-box">{Hot}</span></h4><span>{PurchaseOrderValue}</span>
+                    <h4>{2.0}<span className="new-box">{Hot}</span></h4><span>Electrical capacity average</span>
                   </div>
                   <div className="knob-block text-center">
                     <div className="knob1" id="ordervalue1"></div>
@@ -350,7 +224,7 @@ console.log(data1);
               <CardBody>
                 <div className="media align-items-center">
                   <div className="media-body right-chart-content">
-                    <h4>{"$95,000"}<span className="new-box">{New}</span></h4><span>{ProductOrderValue}</span>
+                    <h4>{22281}<span className="new-box">{New}</span></h4><span>Number plants</span>
                   </div>
                   <div className="knob-block text-center">
                     <div className="knob1" id="ordervalue2"></div>

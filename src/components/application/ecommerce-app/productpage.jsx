@@ -54,7 +54,7 @@ const  Productpage = (props)  => {
     
     return (
         <Fragment>
-                <Breadcrumb parent="Ecommerce" title="Product Page"/>
+                <Breadcrumb parent="ecommerce" title="Product Page"/>
                 <Container fluid={true}>
                    <Row>
                        <Col>

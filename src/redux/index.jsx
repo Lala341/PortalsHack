@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
 import Todoapp from './todo/reducer'
-import Ecommerce from './ecommerce/product/reducer'
+import ecommerce from './ecommerce/product/reducer'
 import Filters from './ecommerce/filter/reducer'
 import Wishlist from './ecommerce/wishlist/reducer'
 import Cart from './ecommerce/cart/reducer'
@@ -12,7 +12,7 @@ import Taskapp from './task-app/reducer'
 import Projectapp from './project-app/reducer'
 const reducers = combineReducers({
     Todoapp,
-    data:Ecommerce,
+    data:ecommerce,
     filters:Filters,
     Wishlistdata:Wishlist,
     Cartdata:Cart,

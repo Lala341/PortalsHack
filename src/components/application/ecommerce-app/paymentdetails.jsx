@@ -17,7 +17,7 @@ import { CreditCard, DebitCard, ExpirationDate, SelectMonth, SelectYear, Submit,
 const Productdetails = props => {
   return (
     <Fragment>
-      <Breadcrumb parent="Ecommerce" title="Payment Details" />
+      <Breadcrumb parent="ecommerce" title="Payment Details" />
       <Container fluid={true} className="credit-card">
         <Row>
           <Col xl="8" className="box-col-12 xl-100">

@@ -161,7 +161,7 @@ export const Marketvalue = {
   }
 }
 
-// Ecommerce
+// ecommerce
 export const Monthlysales = {
   series: [{
     name: 'series1',

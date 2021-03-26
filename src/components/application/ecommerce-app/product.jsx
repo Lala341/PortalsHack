@@ -138,7 +138,7 @@ const Product = (props) => {
 
   return (
     <Fragment>
-      <Breadcrumb parent="Ecommerce" title="Product" />
+      <Breadcrumb parent="ecommerce" title="Product" />
       <Container fluid={true} className="product-wrapper">
         <div className="product-grid">
           <div className="feature-products">

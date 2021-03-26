@@ -29,7 +29,7 @@ const  Cart = () =>  {
   
     return (
       <Fragment>
-        <Breadcrumb parent="Ecommerce" title="Cart"/>
+        <Breadcrumb parent="ecommerce" title="Cart"/>
         {
         cart ?
         <Container fluid={true}>

@@ -1,6 +1,6 @@
 // dashbaord
 import Default from '../components/dashboard/default'
-import Ecommerce from '../components/dashboard/ecommerce'
+import ecommerce from '../components/dashboard/ecommerce'
 
 // widgets
 import GeneralWidget from '../components/widgets/general'
@@ -211,7 +211,7 @@ import TodoFirebase from "../components/application/todo-firebase-app"
 
 export const routes = [
         { path:"/dashboard/default", Component:Default},
-        { path:"/dashboard/ecommerce", Component:Ecommerce},
+        { path:"/dashboard/ecommerce", Component:ecommerce},
 
         { path:"/widgets/general", Component:GeneralWidget},
         { path:"/widgets/chart", Component:ChartsWidget},

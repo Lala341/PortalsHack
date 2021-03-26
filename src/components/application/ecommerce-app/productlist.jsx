@@ -10,7 +10,7 @@ const Productlist = () => {
 
     return (
           <Fragment>
-          <Breadcrumb parent="ECommerce" title="Product List"/>
+          <Breadcrumb parent="ecommerce" title="Product List"/>
           <Container fluid={true}>
             <Row>
                 <Col sm="12">

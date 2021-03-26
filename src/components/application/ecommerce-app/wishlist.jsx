@@ -19,7 +19,7 @@ const Wishlist = (props) => {
     
     return (
         <Fragment>
-        <Breadcrumb parent="Ecommerce" title="Wishlist"/>
+        <Breadcrumb parent="ecommerce" title="Wishlist"/>
         {
         list ?
         <Container fluid={true}>

@@ -14,7 +14,7 @@ const OrderHistory = (props) =>  {
 
     return (
         <Fragment>
-        <Breadcrumb parent="Ecommerce" title="Recent Orders"/>
+        <Breadcrumb parent="ecommerce" title="Recent Orders"/>
         <Container fluid={true}>
           <Row>
             <Col sm="12">

@@ -25,7 +25,7 @@ const Checkout = (props) => {
 
   return (
     <Fragment>
-      <Breadcrumb parent="Ecommerce" title="Checkout" />
+      <Breadcrumb parent="ecommerce" title="Checkout" />
       <Container fluid={true}>
         <Row>
           <Col>
