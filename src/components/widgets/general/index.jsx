@@ -168,7 +168,7 @@ console.log(data1);
                         </div>
                         <div className="media">
                           <div className="media-body">
-                            <p><span className="f-w-500 font-roboto">ecommerce (MW)</span><span className="f-w-700 font-primary ml-2">{"89.21%"}</span></p>
+                            <p><span className="f-w-500 font-roboto">Energy (MW)</span><span className="f-w-700 font-primary ml-2">{"89.21%"}</span></p>
                           </div>
                         </div>
                       </CardHeader>

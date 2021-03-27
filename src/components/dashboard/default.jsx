@@ -127,7 +127,7 @@ console.log(data1);
                       </Col>
                       <Col xl="12" className="p-0 left_side_earning">
                         <h5>{"8741.0"} </h5>
-                        <p className="font-roboto">{"ecommerce (MW)"}</p>
+                        <p className="font-roboto">{"Energy (MW)"}</p>
                       </Col>
                       <Col xl="12" className="p-0 left_side_earning">
                         <h5>{"8.534"}</h5>
