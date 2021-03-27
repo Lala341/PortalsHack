@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/PortalsHack/static/css/main.11b7d8e0.chunk.css",
-    "main.js": "/PortalsHack/static/js/main.0f9db5b3.chunk.js",
-    "main.js.map": "/PortalsHack/static/js/main.0f9db5b3.chunk.js.map",
+    "main.css": "/PortalsHack/static/css/main.6cfad0ae.chunk.css",
+    "main.js": "/PortalsHack/static/js/main.ae74e496.chunk.js",
+    "main.js.map": "/PortalsHack/static/js/main.ae74e496.chunk.js.map",
     "runtime-main.js": "/PortalsHack/static/js/runtime-main.f242689c.js",
     "runtime-main.js.map": "/PortalsHack/static/js/runtime-main.f242689c.js.map",
     "static/css/2.216dbb4a.chunk.css": "/PortalsHack/static/css/2.216dbb4a.chunk.css",
-    "static/js/2.f172a4fa.chunk.js": "/PortalsHack/static/js/2.f172a4fa.chunk.js",
-    "static/js/2.f172a4fa.chunk.js.map": "/PortalsHack/static/js/2.f172a4fa.chunk.js.map",
+    "static/js/2.6c5de878.chunk.js": "/PortalsHack/static/js/2.6c5de878.chunk.js",
+    "static/js/2.6c5de878.chunk.js.map": "/PortalsHack/static/js/2.6c5de878.chunk.js.map",
     "index.html": "/PortalsHack/index.html",
-    "precache-manifest.d05b1e1fbe7d875e2cb30b20591f5e1b.js": "/PortalsHack/precache-manifest.d05b1e1fbe7d875e2cb30b20591f5e1b.js",
+    "precache-manifest.7ed71a80733cc3dc69729a713882f8bd.js": "/PortalsHack/precache-manifest.7ed71a80733cc3dc69729a713882f8bd.js",
     "service-worker.js": "/PortalsHack/service-worker.js",
     "static/css/2.216dbb4a.chunk.css.map": "/PortalsHack/static/css/2.216dbb4a.chunk.css.map",
-    "static/css/main.11b7d8e0.chunk.css.map": "/PortalsHack/static/css/main.11b7d8e0.chunk.css.map",
-    "static/js/2.f172a4fa.chunk.js.LICENSE.txt": "/PortalsHack/static/js/2.f172a4fa.chunk.js.LICENSE.txt",
+    "static/css/main.6cfad0ae.chunk.css.map": "/PortalsHack/static/css/main.6cfad0ae.chunk.css.map",
+    "static/js/2.6c5de878.chunk.js.LICENSE.txt": "/PortalsHack/static/js/2.6c5de878.chunk.js.LICENSE.txt",
     "static/media/01.jpg": "/PortalsHack/static/media/01.ca669591.jpg",
     "static/media/012.jpg": "/PortalsHack/static/media/012.067b8b83.jpg",
     "static/media/013.jpg": "/PortalsHack/static/media/013.067b8b83.jpg",
@@ -45,7 +45,7 @@
     "static/media/auth-bg.mp4": "/PortalsHack/static/media/auth-bg.0c7cf3ba.mp4",
     "static/media/auth-img.svg": "/PortalsHack/static/media/auth-img.59cb9429.svg",
     "static/media/auth0.svg": "/PortalsHack/static/media/auth0.109d4c73.svg",
-    "static/media/bg_1.jpg": "/PortalsHack/static/media/bg_1.ac0fcfc8.jpg",
+    "static/media/bg_1.jpg": "/PortalsHack/static/media/bg_1.cb663c7b.jpg",
     "static/media/blog-single.jpg": "/PortalsHack/static/media/blog-single.e46c283c.jpg",
     "static/media/blog.jpg": "/PortalsHack/static/media/blog.5580f052.jpg",
     "static/media/boxbg.jpg": "/PortalsHack/static/media/boxbg.d6b07967.jpg",
@@ -56,10 +56,8 @@
     "static/media/horse.ogg": "/PortalsHack/static/media/horse.3a370dce.ogg",
     "static/media/jwt.svg": "/PortalsHack/static/media/jwt.3ebfc96f.svg",
     "static/media/learning-1.png": "/PortalsHack/static/media/learning-1.090ea18e.png",
-    "static/media/login.png": "/PortalsHack/static/media/login.5e2605ef.png",
     "static/media/login.jpg": "/PortalsHack/static/media/login.a165244f.jpg",
     "static/media/login_bg.jpg": "/PortalsHack/static/media/login_bg.d2438612.jpg",
-    "static/media/logo_dark.png": "/PortalsHack/static/media/logo_dark.93e2ada9.png",
     "static/media/mobile-clock-wallpaper.jpg": "/PortalsHack/static/media/mobile-clock-wallpaper.3cfff1cd.jpg",
     "static/media/profile.jpg": "/PortalsHack/static/media/profile.c288e3dd.jpg",
     "static/media/start-conversion.jpg": "/PortalsHack/static/media/start-conversion.f5b00048.jpg"
@@ -67,8 +65,8 @@
   "entrypoints": [
     "static/js/runtime-main.f242689c.js",
     "static/css/2.216dbb4a.chunk.css",
-    "static/js/2.f172a4fa.chunk.js",
-    "static/css/main.11b7d8e0.chunk.css",
-    "static/js/main.0f9db5b3.chunk.js"
+    "static/js/2.6c5de878.chunk.js",
+    "static/css/main.6cfad0ae.chunk.css",
+    "static/js/main.ae74e496.chunk.js"
   ]
 }
