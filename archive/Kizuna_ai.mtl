@@ -1,0 +1,111 @@
+# File produced by Open Asset Import Library (http://www.assimp.sf.net)
+# (assimp v3.1.187496374)
+
+newmtl mmd_tools_rigid_8
+Kd 0.25098 0.878431 0.815686
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+d 0.5
+Ns 9.60784
+illum 2
+
+newmtl mmd_tools_rigid_2
+Kd 0.933333 0.509804 0.933333
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+d 0.5
+Ns 9.60784
+illum 2
+
+newmtl mmd_tools_rigid_1
+Kd 0.941176 0.901961 0.54902
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+d 0.5
+Ns 9.60784
+illum 2
+
+newmtl mmd_tools_rigid_9
+Kd 0.588235 0.317647 0.301961
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+d 0.5
+Ns 9.60784
+illum 2
+
+newmtl mmd_tools_rigid_7
+Kd 0.576471 0.439216 0.858824
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+d 0.5
+Ns 9.60784
+illum 2
+
+newmtl 瞳
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd eye.png
+
+newmtl JoinedMaterial_#8
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd bottoms.png
+
+newmtl 髪
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd hair1.png
+
+newmtl 胸リボン
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd tops.png
+
+newmtl 服
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd hair2.png
+
+newmtl JoinedMaterial_#14
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd face.png
+
+newmtl 瞳ハイライト
+Kd 0.8 0.8 0.8
+Ka 0 0 0
+Ks 0 0 0
+Ke 0 0 0
+Ns 9.60784
+illum 2
+map_Kd eye2.png
+
